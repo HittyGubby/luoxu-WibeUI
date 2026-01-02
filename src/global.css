@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #333333;
+  --color-text-dim: #808080;
+  --color-border: #bfbfbf;
+  --color-active: #0088cc;
+  --color-hover: #d9f5ff;
+  --color-error: #ff0000;
+  --color-btn-bg: #f4f4f4;
+  --color-btn-active-bg: #dddddd;
+  --color-msg-border: #eeeeee;
+  --color-keyword-bg: #ffffab;
+  --color-username: #1e90ff;
+  --color-shadow: #808080;
+  --color-topbar-bg: #ffffff;
+  --color-message-bg: #ffffff;
+  --color-message-sent-bg: #0088cc;
+  --color-message-sent-text: #ffffff;
+}
+
+[data-theme="dark"] {
+  --color-bg: #1c1c1e;
+  --color-text: #ffffff;
+  --color-text-dim: #999999;
+  --color-border: #38383a;
+  --color-active: #0088cc;
+  --color-hover: #374b53;
+  --color-error: #ff453a;
+  --color-btn-bg: #2c2c2e;
+  --color-btn-active-bg: #48484a;
+  --color-msg-border: #38383a;
+  --color-keyword-bg: #6b6707;
+  --color-username: #60c0ff;
+  --color-shadow: #000000;
+  --color-topbar-bg: #2c2c2e;
+  --color-message-bg: #2c2c2e;
+  --color-message-sent-bg: #0088cc;
+  --color-message-sent-text: #ffffff;
+}
+
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+body {
+  /* Make content stable wrt scrollbars */
+  margin-left: calc(100vw - 100%);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-active);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input,
+button,
+select,
+textarea {
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0.4em;
+  box-sizing: border-box;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+input,
+textarea {
+  background-color: var(--color-bg);
+}
+
+select,
+button {
+  outline: none;
+  background-color: var(--color-btn-bg);
+}
+
+button:not(:disabled):active {
+  background-color: var(--color-btn-active-bg);
+  transform: scale(0.98);
+}
+
+button:hover:not(:disabled) {
+  background-color: var(--color-hover);
+}
+
+input:focus,
+button:focus,
+select:focus {
+  border-color: var(--color-active);
+  outline: 1px solid var(--color-active);
+  box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.1);
+}
+
+/* Telegram-like scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-dim);
+}
+
+/* Custom components */
+.dropdown-content {
+  animation: slideUp 0.2s ease-out;
+}
+
+.message-bubble {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.date-separator {
+  position: relative;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.date-separator::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.date-separator span {
+  background: var(--color-bg);
+  padding: 0 1rem;
+  color: var(--color-text-dim);
+  font-size: 0.875rem;
+  position: relative;
+  z-index: 1;
+}
